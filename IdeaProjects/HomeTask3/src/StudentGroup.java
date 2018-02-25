@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 public class StudentGroup {
 
@@ -42,20 +42,28 @@ public class StudentGroup {
     }
         public void sortByWorstDegree() {
 
+
+
         }
 
     public void sortByBestDegree () {
+
+
+
+
     }
 
 
-    @Override
-    public String toString() {
-        for (int i = 0; i < students.length; i++)
-            return "Students name   = " + students[i].getName() + "; " +
-                    "" + "Students age  =  " + students[i].getAge() + "; " +
-                    "" + "Average mark  = " + students[i].getAverageMark() + "; " +
-                    "" + "Students address  = " + students[i].getAddress() + "";
-
-        return null;
+    public void displayAllStudents() {
+        try {
+            for (int i = 0; i < students.length; i++)
+                System.out.println("Students name " + " = " +students[i].getName() + ";"+
+                        " Students age " + " = "  +students[i].getAge() + ";"+
+                        " Students age " + " = "  +students[i].getAverageMark()+ ";"+
+                        " Students address " + " = "  +students[i].getAddress());
+        }
+        catch (NullPointerException e){
+            System.out.print("No more students are in Class;   ");
+        }
+        }
     }
-}

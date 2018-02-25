@@ -7,8 +7,8 @@ public class School {
     private final static int REMOVE_STUDENT = 2;
     private final static int DISPLAY_ALL_STUDENTS = 3;
     private final static int SEARCH = 4;
-    private final static int SORT_BY_WORST_DEGREE = 5;
-    private final static int SORT_BY_BEST_DEGREE = 6;
+    private final static int STUDENT_WITH_WORST_DEGREE = 5;
+    private final static int STUDENT_WITH_BEST_DEGREE = 6;
     private final static int EXIT = 7;
 
     private StudentManager manager = new StudentManager();
@@ -37,12 +37,12 @@ public class School {
                     manager.searchByName();
                     break;
                 }
-                case SORT_BY_WORST_DEGREE: {
-                    manager.sortByWorstDegree();
+                case STUDENT_WITH_WORST_DEGREE: {
+                    manager.studentWithWorstDegree();
                     break;
                 }
-                case SORT_BY_BEST_DEGREE: {
-                    manager.sortByBestDegree();
+                case STUDENT_WITH_BEST_DEGREE: {
+                    manager.studentWithBestDegree();
                     break;
                 }
 
@@ -64,8 +64,8 @@ public class School {
         System.out.println("2) Remove student");
         System.out.println("3) Display all students");
         System.out.println("4) Search");
-        System.out.println("5) SortByWorstDegree");
-        System.out.println("6) SortByBestDegree");
+        System.out.println("5) StudentWithWorstDegree");
+        System.out.println("6) StudentWithBestDegree");
         System.out.println("7) Exit");
 
     }

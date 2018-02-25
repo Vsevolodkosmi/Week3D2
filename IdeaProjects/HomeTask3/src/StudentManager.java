@@ -40,7 +40,7 @@ public class StudentManager {
 
     public void displayAllStudents() {
 
-        System.out.println(studentGroup);
+        studentGroup.displayAllStudents();
 
     }
 
@@ -49,11 +49,11 @@ public class StudentManager {
         studentGroup.searchByName(name);
     }
 
-    public void sortByWorstDegree(){
+    public void studentWithWorstDegree(){
         studentGroup.sortByWorstDegree();
     }
 
-    public void sortByBestDegree(){
+    public void studentWithBestDegree(){
         studentGroup.sortByBestDegree();
     }
 
