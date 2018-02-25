@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 public class StudentGroup {
 
     private int size;
@@ -40,30 +38,52 @@ public class StudentGroup {
 
 
     }
-        public void sortByWorstDegree() {
 
-
-
+    public void sortByWorstDegree() {
+        for (int i = 0; i < students.length - 1; i++) {
+            int index = i;
+            for (int j = i + 1; j < students.length; j++) {
+                if (students[j].getAverageMark() < students[index].getAverageMark()) {
+                    index = j;
+                }
+            }
+            Student WorstDegree = students[index];
+            students[index] = students[i];
+            students[i] = WorstDegree;
+            System.out.println("The student with the worst degree is:  " + WorstDegree);
         }
-
-    public void sortByBestDegree () {
-
-
-
 
     }
 
+    public void sortByBestDegree() {
+        int max;
+        for (int i = 0; i < students.length; i++) {
+            max = i;
+            for (int j = i + 1; j < students.length; j++) {
+                if (students[j].getAverageMark() > students[max].getAverageMark()) {
+                    max = j;
+                }
+            }
+
+            if (max != i) {
+                Student BestDegree = students[i];
+                students[i] = students[max];
+                students[max] = BestDegree;
+
+                System.out.println(BestDegree);
+            }
+        }
+    }
 
     public void displayAllStudents() {
         try {
             for (int i = 0; i < students.length; i++)
-                System.out.println("Students name " + " = " +students[i].getName() + ";"+
-                        " Students age " + " = "  +students[i].getAge() + ";"+
-                        " Students age " + " = "  +students[i].getAverageMark()+ ";"+
-                        " Students address " + " = "  +students[i].getAddress());
-        }
-        catch (NullPointerException e){
+                System.out.println("Students name " + " = " + students[i].getName() + ";" +
+                        " Students age " + " = " + students[i].getAge() + ";" +
+                        " Students age " + " = " + students[i].getAverageMark() + ";" +
+                        " Students address " + " = " + students[i].getAddress());
+        } catch (NullPointerException e) {
             System.out.print("No more students are in Class;   ");
         }
-        }
     }
+}
