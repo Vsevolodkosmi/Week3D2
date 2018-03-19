@@ -87,9 +87,8 @@ public abstract class Gladiator {
 
     public abstract int hill();
 
-    public int defence(int bit) {
-        int x = health - bit;
-        return x;
+    public void defence(int bit) {
+        health = health - bit;
     }
 
     public int dodge(int bit) {
@@ -97,10 +96,10 @@ public abstract class Gladiator {
         return x;
     }
 
-    public String isAlive() {
+    public boolean isAlive() {
         if (health > 0)
-            return "Gladiator is alive";
-        return "Gladiator is dead";
+            return true;
+        return false;
     }
 
     public void changeWeapon(Weapon weapon) {
