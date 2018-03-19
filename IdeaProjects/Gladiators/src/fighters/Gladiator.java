@@ -3,13 +3,13 @@ package fighters;
 import weapon.Weapon;
 
 public abstract class Gladiator {
-    int health;
-    int mana;
-    int crit;
-    int dodge;
-    int block;
-    int strength;
-    int spellStrength;
+    private int health;
+    private int mana;
+    private int crit;
+    private int dodge;
+    private int block;
+    private int strength;
+    private int spellStrength;
 
     public int getHealth() {
         return health;
@@ -67,7 +67,9 @@ public abstract class Gladiator {
         this.spellStrength = spellStrength;
     }
 
-    public Gladiator(int health, int mana, int crit, int dodge, int block, int strength, int spellStrength) {
+    public Gladiator(int health, int mana,
+                     int crit,
+                     int dodge, int block, int strength, int spellStrength) {
         this.health = health;
         this.mana = mana;
         this.crit = crit;
@@ -77,20 +79,31 @@ public abstract class Gladiator {
         this.spellStrength = spellStrength;
     }
 
-    private Weapon weapon;
+    public int bit() {
+        int x = spellStrength + strength;
+        return x;
+    }
 
-    public abstract int bit(int strength,int spellStrength);
 
-    public abstract int hill(int health);
+    public abstract int hill();
 
-    public abstract int defence(int damage);
+    public int defence(int bit) {
+        int x = health - bit;
+        return x;
+    }
 
-    public abstract int dodge(int damage);
+    public int dodge(int bit) {
+        int x = health - bit + dodge;
+        return x;
+    }
 
-    public abstract boolean isAlive();
+    public String isAlive() {
+        if (health > 0)
+            return "Gladiator is alive";
+        return "Gladiator is dead";
+    }
 
     public void changeWeapon(Weapon weapon) {
-        this.weapon = weapon;
     }
 
 }

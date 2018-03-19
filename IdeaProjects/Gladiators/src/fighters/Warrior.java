@@ -1,36 +1,17 @@
- package fighters;
+package fighters;
 
-public class Warrior {
+public class Warrior extends Gladiator {
 
 
-    Gladiator Warrior = new Gladiator(150,0,34,20,
-            10,30,0) {
+    public Warrior(int health, int mana,
+                   int crit, int dodge, int block, int strength, int spellStrength) {
+        super(health, mana, crit, dodge, block, strength, spellStrength);
+    }
 
-        @Override
-        public int bit(int strength, int spellStrength) {
-            return Warrior.getHealth();
-        }
 
-        @Override
-        public int hill(int health) {
-            return health;
-        }
-
-        @Override
-        public int defence(int damage) {
-            return  health + block - damage;
-        }
-
-        @Override
-        public int dodge(int damage) {
-            return health - damage + damage;
-        }
-
-        @Override
-        public boolean isAlive() {
-            return health > 0;
-        }
-
-    };
+    @Override
+    public int hill() {
+        return getHealth();
+    }
 
 }
